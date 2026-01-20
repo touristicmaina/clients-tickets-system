@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.scss']
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
+  username = '';
+  password = '';
 
   login() {
-    console.log('Login:', this.username, this.password);
+    console.log(this.username, this.password);
   }
 }
