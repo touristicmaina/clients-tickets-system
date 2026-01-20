@@ -13,11 +13,11 @@ export const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'activities',
+    path: 'dashboard',
     canActivate: [authGuard],
     loadChildren: () =>
-      import('./view/pages/activities/activities.module')
-        .then(m => m.ActivitiesModule)
+      import('./auth/auth-module')
+        .then(m => m.AuthModule)
   },
   {
     path: '**',
