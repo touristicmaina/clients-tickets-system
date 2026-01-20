@@ -5,11 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './login.html',
   styleUrls: ['./login.scss']
 })
-export class LoginComponent {
-  username = '';
-  password = '';
-
-  login() {
-    console.log(this.username, this.password);
-  }
-}
+export class LoginComponent {}
