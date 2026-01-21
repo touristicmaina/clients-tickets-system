@@ -1,20 +1,25 @@
-.login-box {
+.login-container {
   width: 300px;
   margin: 100px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
 
-  input {
-    padding: 8px;
-  }
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
 
-  button {
-    padding: 8px;
-    cursor: pointer;
-  }
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
 
-  .error {
-    color: red;
-  }
+button {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
 }
