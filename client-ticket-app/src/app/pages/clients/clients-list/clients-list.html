@@ -1,0 +1,33 @@
+<div class="page">
+  <div class="card">
+    <h2>Clients</h2>
+
+    <table *ngIf="clients.length > 0">
+      <thead>
+        <tr>
+          <th>Client</th>
+          <th>Hotel</th>
+          <th>Room</th>
+          <th>Phone</th>
+          <th>Guide</th>
+          <th>Guide Phone</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let c of clients">
+          <td>{{ c.clientName }}</td>
+          <td>{{ c.hotel }}</td>
+          <td>{{ c.room }}</td>
+          <td>{{ c.phone }}</td>
+          <td>{{ c.guideName }}</td>
+          <td>{{ c.guidePhone }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="empty" *ngIf="clients.length === 0">
+      No clients added yet.
+    </p>
+  </div>
+</div>
