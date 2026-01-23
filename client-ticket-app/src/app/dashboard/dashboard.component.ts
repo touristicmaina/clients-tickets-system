@@ -1,14 +1,25 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { DashboardData } from '../pages/dashboard/dashboard-data';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  template: `
-    <h1>Dashboard</h1>
-  `
+  imports: [CommonModule],
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
-  constructor(private router: Router) {}
+export class DashboardComponent implements OnInit {
 
+  bookings: any[] = [];
+  tickets: any[] = [];
+  totalCommission = 0;
+
+  constructor(private dashboardData: DashboardData) {}
+
+  ngOnInit(): void {
+    this.bookings = this.dashboardData.getBookings();
+    this.tickets = this.dashboardData.getTickets();
+    this.totalCommission = this.dashboardData.getTotalCommission();
   }
+}

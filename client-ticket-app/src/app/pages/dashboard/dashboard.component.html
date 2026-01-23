@@ -1,0 +1,47 @@
+<h2 class="page-title">Dashboard</h2>
+
+<div class="cards">
+  <div class="card">
+    <h3>Bookings</h3>
+    <p class="big">{{ bookings.length }}</p>
+<app-dashboard-chart 
+  [bookings]="bookings.length" 
+  [tickets]="tickets.length">
+</app-dashboard-chart>
+  </div>
+
+  <div class="card">
+    <h3>Tickets</h3>
+    <p class="big">{{ tickets.length }}</p>
+<app-dashboard-chart 
+  [bookings]="bookings.length" 
+  [tickets]="tickets.length">
+</app-dashboard-chart>
+  </div>
+
+  <div class="card highlight">
+    <h3>Total Commission</h3>
+    <p class="big">{{ totalCommission }} $</p>
+<app-dashboard-chart 
+  [bookings]="bookings.length" 
+  [tickets]="tickets.length">
+</app-dashboard-chart>
+  </div>
+<app-dashboard-chart 
+  [bookings]="bookings.length" 
+  [tickets]="tickets.length">
+</app-dashboard-chart>
+</div>
+
+<div class="section">
+  <h3>Latest Bookings</h3>
+  <ul>
+    <li *ngFor="let b of bookings">
+      {{ b.clientName }} – {{ b.hotel }} – {{ b.date }} {{ b.time }}
+    </li>
+  </ul>
+<app-dashboard-chart 
+  [bookings]="bookings.length" 
+  [tickets]="tickets.length">
+</app-dashboard-chart>
+</div>

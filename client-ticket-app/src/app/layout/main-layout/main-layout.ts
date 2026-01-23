@@ -1,91 +1,121 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink, Router } from '@angular/router';
+import { Router, RouterOutlet, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
+  imports: [CommonModule, RouterOutlet, RouterModule],
   template: `
-  <div class="app-container">
-    <aside class="sidebar">
-      <h2 class="logo">System</h2>
+    <div class="layout">
 
-      <nav>
-        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-        <a routerLink="/clients" routerLinkActive="active">Clients</a>
-        <a routerLink="/clients/create" routerLinkActive="active">Add Client</a>
-      </nav>
+      <aside class="sidebar">
+        <h2>CTS</h2>
 
-      <button class="logout" (click)="logout()">Logout</button>
-    </aside>
+        <nav>
+          <a routerLink="/dashboard">Dashboard</a>
+          <a routerLink="/clients">Clients</a>
+          <a routerLink="/clients/create">Add Client</a>
+        </nav>
 
-    <section class="content">
-      <router-outlet></router-outlet>
-    </section>
-  </div>
+        <button class="logout" (click)="logout()">Logout</button>
+      </aside>
+
+      <div class="main">
+
+        <header class="topbar">
+          Clients & Tickets System
+        </header>
+
+        <section class="content">
+          <router-outlet></router-outlet>
+        </section>
+
+        <footer class="footer">
+          © ÖZCAN ALMAIS 2026 — All rights reserved
+        </footer>
+
+      </div>
+
+    </div>
   `,
   styles: [`
-    .app-container {
+    .layout {
       display: flex;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
+      min-height: 100vh;
     }
 
     .sidebar {
-      width: 240px;
-      background: #0f172a;
-      color: #fff;
+      width: 220px;
+      background: #111827;
+      color: white;
       padding: 20px;
       display: flex;
       flex-direction: column;
     }
 
-    .logo {
+    .sidebar h2 {
       margin-bottom: 30px;
-      font-size: 22px;
-      font-weight: bold;
     }
 
     nav a {
-      display: block;
-      padding: 12px 10px;
-      color: #cbd5f5;
+      color: #d1d5db;
       text-decoration: none;
-      border-radius: 6px;
-      margin-bottom: 8px;
+      margin-bottom: 14px;
+      display: block;
     }
 
-    nav a.active,
     nav a:hover {
-      background: #1e293b;
-      color: #fff;
+      color: white;
     }
 
     .logout {
       margin-top: auto;
-      padding: 10px;
+      background: #ef4444;
       border: none;
-      background: #dc2626;
-      color: #fff;
+      padding: 10px;
+      color: white;
       border-radius: 6px;
       cursor: pointer;
     }
 
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #f7f7f7;
+    }
+
+    .topbar {
+      height: 56px;
+      background: white;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
     .content {
       flex: 1;
-      padding: 40px;
-      background: #f1f5f9;
-      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 12px;
+      font-size: 13px;
+      color: #777;
+      background: white;
+      border-top: 1px solid #e5e7eb;
     }
   `]
 })
 export class MainLayoutComponent {
+
   constructor(private router: Router) {}
 
   logout() {
-    localStorage.removeItem('loggedIn');
+    localStorage.clear();
     this.router.navigate(['/login']);
   }
 }
