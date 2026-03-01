@@ -1,0 +1,18 @@
+<div class="layout">
+  <aside class="sidebar">
+    <h2>CTS</h2>
+    <a routerLink="/dashboard">Dashboard</a>
+<a routerLink="/clients">Clients</a>
+  </aside>
+
+  <div class="content">
+    <header class="topbar">
+      <span>Clients Tickets System</span>
+      <button (click)="logout()">Logout</button>
+    </header>
+
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
