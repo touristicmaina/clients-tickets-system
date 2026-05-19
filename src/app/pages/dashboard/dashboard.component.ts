@@ -410,7 +410,7 @@ export class DashboardComponent implements OnInit {
     const logoData = new Array(512).fill(0xAA); 
     return [...CENTER, ...BITMAP_COMMAND, ...logoData, 0x1B, 0x61, 0x00, 0x0A]; 
   }
-  rates = { EUR: 0.84, TRY: 43.74, GBP: 0.74 };
+  rates = { EUR: 0.86, TRY: 45.57, GBP: 0.75 };
   convertToUSD(amount: number, currency: string): number { 
     if (!amount) return 0; 
     switch (currency) { 
